@@ -1,6 +1,7 @@
 package main
 
 import (
+	"container/list"
 	"fmt"
 	"reflect"
 )
@@ -92,5 +93,44 @@ func main() {
 	myMap["Laura"] = 35
 	myMap["Juan"] = 24
 	fmt.Println(myMap["Eduardo"])
+
+	myMap2 := map[string]int{"Juan": 20, "Cristofer": 15, "Irvin": 24}
+	fmt.Println(myMap2)
+
+	//List
+
+	myList := list.New()
+	myList.PushBack(1)
+	myList.PushBack(2)
+	myList.PushBack(3)
+	// fmt.Println(myList[1]) Error
+	fmt.Println(myList.Back().Value)
+
+	//Bucles
+
+	for index := 0; index < len(myArray); index++ {
+		fmt.Println(myArray[index])
+	}
+
+	for index, value := range myMap {
+		fmt.Println(index, value)
+	}
+
+	// Función
+	fmt.Println(myFunction())
+
+	// Estructura
+
+	type MyStruct struct {
+		name string
+		age  int
+	}
+
+	myStruct := MyStruct{"Eduardo", 25}
+	fmt.Println(myStruct)
+}
+
+func myFunction() string {
+	return "Mi función"
 
 }
